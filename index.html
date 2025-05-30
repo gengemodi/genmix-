@@ -44,4 +44,123 @@
     }
     p {
       max-width: 600px;
-      line-height: 1
+      line-height: 1.6;
+    }
+    section {
+      padding: 4rem 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      background-color: #111;
+      padding: 2rem;
+      border-radius: 8px;
+    }
+    label {
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+    input, select, textarea {
+      padding: 0.7rem;
+      border-radius: 4px;
+      border: none;
+      font-size: 1rem;
+      width: 100%;
+    }
+    button {
+      background-color: #e91e63;
+      color: white;
+      border: none;
+      padding: 1rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #c2185b;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">genmix</div>
+    <nav>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#booking">Booking</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Ingeniero de Sonido</h1>
+    <p>Genaro Mosquera es un productor y mezclador nacido en Caracas, Venezuela, cuya visión y talento están transformando el sonido de una nueva generación de artistas. Su enfoque va más allá de una mezcla perfecta: capta la esencia del artista y convierte cada canción en una narrativa sonora única.</p>
+    <p>Ha trabajado con artistas como Kiko Veneno, Macaco, C. Tangana y La Mala Rodríguez, combinando técnica y emoción para crear resultados inolvidables.</p>
+  </main>
+
+  <section id="booking">
+    <h2>Reserva tu sesión de Mixing</h2>
+    <form id="bookingForm" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+      <!-- Configuración PayPal -->
+      <input type="hidden" name="cmd" value="_xclick" />
+      <input type="hidden" name="business" value="tu-email-paypal@ejemplo.com" />
+      <input type="hidden" name="currency_code" value="USD" />
+      <input type="hidden" name="item_name" value="Sesión de Mixing Profesional" />
+      <input type="hidden" name="amount" id="paymentAmount" value="50.00" />
+
+      <label for="name">Nombre completo</label>
+      <input type="text" id="name" name="custom" placeholder="Tu nombre" required />
+
+      <label for="email">Correo electrónico</label>
+      <input type="email" id="email" name="email" placeholder="tu@email.com" required />
+
+      <label for="date">Fecha deseada</label>
+      <input type="date" id="date" name="date" required />
+
+      <label for="package">Paquete de sesión</label>
+      <select id="package" name="package" required onchange="updatePrice()">
+        <option value="" disabled selected>Selecciona un paquete</option>
+        <option value="Básico" data-price="50.00">Básico - $50</option>
+        <option value="Avanzado" data-price="100.00">Avanzado - $100</option>
+        <option value="Premium" data-price="150.00">Premium - $150</option>
+      </select>
+
+      <label for="notes">Notas adicionales</label>
+      <textarea id="notes" name="notes" rows="3" placeholder="Detalles, links o ideas..."></textarea>
+
+      <button type="submit">Pagar con PayPal</button>
+    </form>
+  </section>
+
+  <footer>
+    © 2025 genmix — Todos los derechos reservados
+  </footer>
+
+  <script>
+    function updatePrice() {
+      const select = document.getElementById('package');
+      const amountInput = document.getElementById('paymentAmount');
+      const selectedOption = select.options[select.selectedIndex];
+      if (selectedOption && selectedOption.dataset.price) {
+        amountInput.value = selectedOption.dataset.price;
+      }
+    }
+  </script>
+</body>
+</html>
