@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Genmix | MIXENGINEER</title>
+  <title>Genmix | Mix Engineer</title>
   <style>
     body {
       margin: 0;
@@ -95,61 +95,73 @@
       font-size: 0.9rem;
       color: #888;
     }
+    .projects iframe {
+      width: 100%;
+      height: 500px;
+      border: none;
+      border-radius: 8px;
+      margin-top: 1rem;
+    }
   </style>
 </head>
 <body>
   <header>
     <div class="logo">Genmix</div>
     <nav>
-      <a href="#proyectos">Proyectos</a>
-      <a href="#servicios">Servicios</a>
+      <a href="#projects">Projects</a>
+      <a href="#services">Services</a>
       <a href="#booking">Booking</a>
-      <a href="#contacto">Contacto</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
 
   <main>
     <h1>Mix Engineer</h1>
-    <p>Genaro Mosquera es un productor y mezclador nacido en Caracas, Venezuela, cuya visión y talento están transformando el sonido de una nueva generación de artistas. Su enfoque va más allá de una mezcla perfecta: capta la esencia del artista y convierte cada canción en una narrativa sonora única.</p>
-    <p>Ha trabajado con artistas como Kiko Veneno, Macaco, C. Tangana y La Mala Rodríguez, combinando técnica y emoción para crear resultados inolvidables.</p>
+    <p>Genaro Mosquera is a producer and mix engineer from Caracas, Venezuela. His vision and talent are shaping the sound of a new generation of artists. His approach goes beyond flawless mixing—he captures the soul of every artist, turning each track into a sonic story.</p>
+    <p>He's worked with artists like Kiko Veneno, Macaco, C. Tangana, and La Mala Rodríguez, combining precision with emotion to deliver unforgettable results.</p>
   </main>
 
+  <section id="projects" class="projects">
+    <h2>Featured Projects</h2>
+    <p>Listen to my full credits on Muso.ai:</p>
+    <iframe src="https://credits.muso.ai/profile/eea277c2-8983-4eec-9c08-f333d4797aee"></iframe>
+  </section>
+
   <section id="booking">
-    <h2>Reserva tu sesión de Mixing</h2>
+    <h2>Book a Mixing Session</h2>
     <form id="bookingForm" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-      <!-- Configuración PayPal -->
       <input type="hidden" name="cmd" value="_xclick" />
       <input type="hidden" name="business" value="gemodi1@hotmail.com" />
       <input type="hidden" name="currency_code" value="USD" />
-      <input type="hidden" name="item_name" value="Sesión de Mixing Profesional" />
+      <input type="hidden" name="item_name" value="Professional Mixing Session" />
       <input type="hidden" name="amount" id="paymentAmount" value="50.00" />
 
-      <label for="name">Nombre completo</label>
-      <input type="text" id="name" name="custom" placeholder="Tu nombre" required />
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="custom" placeholder="Your name" required />
 
-      <label for="email">Correo electrónico</label>
-      <input type="email" id="email" name="email" placeholder="tu@email.com" required />
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required />
 
-      <label for="date">Fecha deseada</label>
+      <label for="date">Preferred Date</label>
       <input type="date" id="date" name="date" required />
 
-      <label for="package">Paquete de sesión</label>
+      <label for="package">Session Package</label>
       <select id="package" name="package" required onchange="updatePrice()">
-        <option value="" disabled selected>Selecciona un paquete</option>
-        <option value="Básico" data-price="50.00">Recording Session  - €400</option>
-        <option value="Avanzado" data-price="100.00">Mixing - €300</option>
-        <option value="Premium" data-price="150.00">Mastering  - €50</option>
+        <option value="" disabled selected>Select a package</option>
+        <option value="Recording" data-price="400.00">Recording Session - €400</option>
+        <option value="Mixing" data-price="300.00">Mixing - €300</option>
+        <option value="Mastering" data-price="50.00">Mastering - €50</option>
       </select>
 
-      <label for="notes">Notas adicionales</label>
-      <textarea id="notes" name="notes" rows="3" placeholder="Detalles, links o ideas..."></textarea>
+      <label for="notes">Additional Notes</label>
+      <textarea id="notes" name="notes" rows="3" placeholder="Details, links or ideas..."></textarea>
 
-      <button type="submit">Pagar con PayPal</button>
+      <button type="submit">Pay with PayPal</button>
     </form>
   </section>
 
   <footer>
-    © 2025 genmix — Todos los derechos reservados
+    © 2025 Genmix — All rights reserved.
   </footer>
 
   <script>
