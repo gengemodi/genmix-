@@ -89,18 +89,31 @@
     button:hover {
       background-color: #c2185b;
     }
+    table {
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+      border-collapse: collapse;
+      color: #fff;
+    }
+    th, td {
+      padding: 1rem;
+    }
+    th {
+      background-color: #222;
+      text-align: left;
+    }
+    td {
+      border-top: 1px solid #444;
+    }
+    td:last-child {
+      text-align: right;
+    }
     footer {
       text-align: center;
       padding: 2rem;
       font-size: 0.9rem;
       color: #888;
-    }
-    .projects iframe {
-      width: 100%;
-      height: 500px;
-      border: none;
-      border-radius: 8px;
-      margin-top: 1rem;
     }
   </style>
 </head>
@@ -117,47 +130,78 @@
 
   <main>
     <h1>Mix Engineer</h1>
-    <p>Genaro Mosquera is a producer and mix engineer from Caracas, Venezuela. His vision and talent are shaping the sound of a new generation of artists. His approach goes beyond flawless mixing—he captures the soul of every artist, turning each track into a sonic story.</p>
-    <p>He's worked with artists like Kiko Veneno, Macaco, and La Mala Rodríguez, combining precision with emotion to deliver unforgettable results.</p>
+    <p>Genaro Mosquera is a producer and mixing engineer from Caracas, Venezuela, whose vision and talent are helping define the sound of a new generation. With a sharp ear and an ability to capture each artist’s essence, his work goes beyond flawless mixing—he transforms music into sonic storytelling.</p>
+    <p>He has worked with artists such as Kiko Veneno, Macaco, C. Tangana, and La Mala Rodríguez. Trained under Dave Pensado, Genaro blends technical precision with an emotional approach that makes every track shine.</p>
   </main>
 
-  <section id="projects" class="projects">
-    <h2>Featured Projects</h2>
-    <p>Listen to my full credits on Muso.ai:</p>
-    <iframe src="https://credits.muso.ai/profile/eea277c2-8983-4eec-9c08-f333d4797aee"></iframe>
+  <section id="projects">
+    <h2>Projects</h2>
+    <p style="text-align: center;">
+      Listen to my full credits on <a href="https://credits.muso.ai/profile/eea277c2-8983-4eec-9c08-f333d4797aee" target="_blank" style="color: #e91e63; text-decoration: underline;">Muso.ai</a>.
+    </p>
+  </section>
+
+  <section id="services">
+    <h2>Services</h2>
+    <p style="text-align: center; max-width: 700px; margin: 0 auto 2rem;">
+      I offer professional mixing and mastering services designed to elevate your music to its highest potential. Each project is approached with precision, creativity, and a deep understanding of the artist's vision.
+    </p>
+    <table>
+      <thead>
+        <tr>
+          <th>Service</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Mixing</td>
+          <td>€300</td>
+        </tr>
+        <tr>
+          <td>Mastering</td>
+          <td>€50</td>
+        </tr>
+      </tbody>
+    </table>
   </section>
 
   <section id="booking">
     <h2>Book a Mixing Session</h2>
     <form id="bookingForm" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+      <!-- PayPal Settings -->
       <input type="hidden" name="cmd" value="_xclick" />
       <input type="hidden" name="business" value="gemodi1@hotmail.com" />
-      <input type="hidden" name="currency_code" value="USD" />
-      <input type="hidden" name="item_name" value="Professional Mixing Session" />
-      <input type="hidden" name="amount" id="paymentAmount" value="50.00" />
+      <input type="hidden" name="currency_code" value="EUR" />
+      <input type="hidden" name="item_name" value="Professional Audio Service" />
+      <input type="hidden" name="amount" id="paymentAmount" value="300.00" />
 
       <label for="name">Full Name</label>
       <input type="text" id="name" name="custom" placeholder="Your name" required />
 
-      <label for="email">Email Address</label>
-      <input type="email" id="email" name="email" placeholder="you@example.com" required />
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="you@email.com" required />
 
       <label for="date">Preferred Date</label>
       <input type="date" id="date" name="date" required />
 
-      <label for="package">Session Package</label>
+      <label for="package">Select Service</label>
       <select id="package" name="package" required onchange="updatePrice()">
         <option value="" disabled selected>Select a package</option>
-        <option value="Recording" data-price="400.00">Recording Session - €400</option>
-        <option value="Mixing" data-price="300.00">Mixing - €300</option>
-        <option value="Mastering" data-price="50.00">Mastering - €50</option>
+        <option value="Mixing" data-price="300.00">Mixing – €300</option>
+        <option value="Mastering" data-price="50.00">Mastering – €50</option>
       </select>
 
       <label for="notes">Additional Notes</label>
-      <textarea id="notes" name="notes" rows="3" placeholder="Details, links or ideas..."></textarea>
+      <textarea id="notes" name="notes" rows="3" placeholder="Links, references, or other details..."></textarea>
 
       <button type="submit">Pay with PayPal</button>
     </form>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p style="text-align: center;">You can reach me directly at <a href="mailto:gemodi1@hotmail.com" style="color: #e91e63;">gemodi1@hotmail.com</a>.</p>
   </section>
 
   <footer>
