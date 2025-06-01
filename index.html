@@ -56,19 +56,6 @@
       margin-bottom: 1rem;
       text-align: center;
     }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 1rem;
-    }
-    th, td {
-      border: 1px solid #333;
-      padding: 1rem;
-      text-align: left;
-    }
-    th {
-      background-color: #222;
-    }
     form {
       display: flex;
       flex-direction: column;
@@ -79,6 +66,7 @@
     }
     label {
       font-weight: 600;
+      margin-bottom: 0.3rem;
     }
     input, select, textarea {
       padding: 0.7rem;
@@ -101,18 +89,18 @@
     button:hover {
       background-color: #c2185b;
     }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #888;
+    }
     .projects iframe {
       width: 100%;
       height: 500px;
       border: none;
       border-radius: 8px;
       margin-top: 1rem;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-      color: #888;
     }
   </style>
 </head>
@@ -139,39 +127,13 @@
     <iframe src="https://credits.muso.ai/profile/eea277c2-8983-4eec-9c08-f333d4797aee"></iframe>
   </section>
 
-  <section id="services">
-    <h2>Services</h2>
-    <p>I offer high-end mixing and mastering services with a creative and detail-driven approach. Each project is handled with the care and precision your music deserves.</p>
-    <table>
-      <thead>
-        <tr>
-          <th>Service</th>
-          <th>Description</th>
-          <th>Price</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Mixing</td>
-          <td>Professional mixing tailored to enhance your song’s impact and emotion.</td>
-          <td>€300</td>
-        </tr>
-        <tr>
-          <td>Mastering</td>
-          <td>Final polish and loudness optimization to make your track release-ready.</td>
-          <td>€50</td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
-
   <section id="booking">
     <h2>Book a Mixing Session</h2>
     <form id="bookingForm" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
       <input type="hidden" name="cmd" value="_xclick" />
       <input type="hidden" name="business" value="gemodi1@hotmail.com" />
-      <input type="hidden" name="currency_code" value="EUR" />
-      <input type="hidden" name="item_name" value="Professional Session" />
+      <input type="hidden" name="currency_code" value="USD" />
+      <input type="hidden" name="item_name" value="Professional Mixing Session" />
       <input type="hidden" name="amount" id="paymentAmount" value="50.00" />
 
       <label for="name">Full Name</label>
@@ -212,5 +174,3 @@
       }
     }
   </script>
-</body>
-</html>
