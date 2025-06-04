@@ -87,9 +87,6 @@
       font-size: 1rem;
       width: 100%;
     }
-    select[multiple] {
-      height: 8rem;
-    }
     button {
       background-color: #e91e63;
       color: white;
@@ -117,9 +114,6 @@
       font-size: 0.9rem;
       color: #888;
     }
-    a {
-      color: #e91e63;
-    }
   </style>
 </head>
 <body>
@@ -135,7 +129,7 @@
 
   <main>
     <h1>Mix Engineer</h1>
-    <p>Genaro Mosquera is a producer and mix engineer from Caracas, Venezuela based in Barcelona - Spain. His vision and talent are shaping the sound of a new generation of artists. His approach goes beyond flawless mixing—he captures the soul of every artist, turning each track into a sonic story.</p>
+    <p>Genaro Mosquera is a producer and mix engineer from Caracas, Venezuela. His vision and talent are shaping the sound of a new generation of artists. His approach goes beyond flawless mixing—he captures the soul of every artist, turning each track into a sonic story.</p>
     <p>He's worked with artists like Kiko Veneno, Macaco, and La Mala Rodríguez, combining precision with emotion to deliver unforgettable results.</p>
   </main>
 
@@ -167,37 +161,30 @@
           <td>Final polish and loudness optimization to make your track release-ready.</td>
           <td>€50</td>
         </tr>
-        <tr>
-          <td>Productions</td>
-          <td>Full Production, please contact to know more</td>
-          <td>contact</td>
-        </tr>
       </tbody>
     </table>
   </section>
 
   <section id="booking">
     <h2>Book a Mixing Session</h2>
-    <form action="https://formsubmit.co/gemodi1@gmail.com" method="POST" target="_self" onsubmit="return handleRedirect()">
-      <input type="hidden" name="_next" id="redirectURL" value="" />
+    <form id="bookingForm" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+      <input type="hidden" name="cmd" value="_xclick" />
+      <input type="hidden" name="business" value="gemodi1@hotmail.com" />
+      <input type="hidden" name="currency_code" value="EUR" />
+      <input type="hidden" name="item_name" value="Professional Session" />
+      <input type="hidden" name="amount" id="paymentAmount" value="50.00" />
 
       <label for="name">Full Name</label>
-      <input type="text" id="name" name="name" placeholder="Your name" required />
+      <input type="text" id="name" name="custom" placeholder="Your name" required />
 
       <label for="email">Email Address</label>
       <input type="email" id="email" name="email" placeholder="you@example.com" required />
 
-      <label for="dates">Preferred Dates</label>
-      <select id="dates" name="dates" multiple required>
-        <option value="2025-06-10">June 10, 2025</option>
-        <option value="2025-06-11">June 11, 2025</option>
-        <option value="2025-06-12">June 12, 2025</option>
-        <option value="2025-06-13">June 13, 2025</option>
-        <option value="2025-06-14">June 14, 2025</option>
-      </select>
+      <label for="date">Preferred Date</label>
+      <input type="date" id="date" name="date" required />
 
       <label for="package">Session Package</label>
-      <select id="package" name="package" required onchange="updateRedirect()">
+      <select id="package" name="package" required onchange="updatePrice()">
         <option value="" disabled selected>Select a package</option>
         <option value="Recording" data-price="400.00">Recording Session - €400</option>
         <option value="Mixing" data-price="300.00">Mixing - €300</option>
@@ -207,13 +194,8 @@
       <label for="notes">Additional Notes</label>
       <textarea id="notes" name="notes" rows="3" placeholder="Details, links or ideas..."></textarea>
 
-      <button type="submit">Send & Continue to PayPal</button>
+      <button type="submit">Pay with PayPal</button>
     </form>
-  </section>
-
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>You can reach me directly at <a href="mailto:gemodi1@gmail.com">gemodi1@gmail.com</a>.</p>
   </section>
 
   <footer>
@@ -221,25 +203,13 @@
   </footer>
 
   <script>
-    function updateRedirect() {
+    function updatePrice() {
       const select = document.getElementById('package');
-      const selected = select.options[select.selectedIndex];
-      const price = selected?.dataset.price;
-      const name = selected?.value;
-      const redirect = document.getElementById('redirectURL');
-
-      if (price && name) {
-        redirect.value = `https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=gemodi1@hotmail.com&currency_code=EUR&item_name=${encodeURIComponent(name)}&amount=${price}`;
+      const amountInput = document.getElementById('paymentAmount');
+      const selectedOption = select.options[select.selectedIndex];
+      if (selectedOption && selectedOption.dataset.price) {
+        amountInput.value = selectedOption.dataset.price;
       }
-    }
-
-    function handleRedirect() {
-      const packageSelect = document.getElementById('package');
-      if (!packageSelect.value) {
-        alert('Please select a session package.');
-        return false;
-      }
-      return true;
     }
   </script>
 </body>
