@@ -20,4 +20,202 @@
     }
     .logo {
       font-size: 2rem;
-      font-wei
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+    nav a {
+      color: #ffffff;
+      margin-left: 1.5rem;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 4rem 2rem;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    p {
+      max-width: 600px;
+      line-height: 1.6;
+    }
+    section {
+      padding: 4rem 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    th, td {
+      border: 1px solid #333;
+      padding: 1rem;
+      text-align: left;
+    }
+    th {
+      background-color: #222;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      background-color: #111;
+      padding: 2rem;
+      border-radius: 8px;
+    }
+    label {
+      font-weight: 600;
+    }
+    input, select, textarea {
+      padding: 0.7rem;
+      border-radius: 4px;
+      border: none;
+      font-size: 1rem;
+      width: 100%;
+    }
+    button {
+      background-color: #e91e63;
+      color: white;
+      border: none;
+      padding: 1rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #c2185b;
+    }
+    .projects iframe {
+      width: 100%;
+      height: 500px;
+      border: none;
+      border-radius: 8px;
+      margin-top: 1rem;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Genmix</div>
+    <nav>
+      <a href="#projects">Projects</a>
+      <a href="#services">Services</a>
+      <a href="#booking">Booking</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Mix Engineer</h1>
+    <p>Genaro Mosquera is a producer and mix engineer from Caracas, Venezuela. His vision and talent are shaping the sound of a new generation of artists. His approach goes beyond flawless mixing—he captures the soul of every artist, turning each track into a sonic story.</p>
+    <p>He's worked with artists like Kiko Veneno, Macaco, and La Mala Rodríguez, combining precision with emotion to deliver unforgettable results.</p>
+  </main>
+
+  <section id="projects" class="projects">
+    <h2>Featured Projects</h2>
+    <p>Listen to my full credits on Muso.ai:</p>
+    <iframe src="https://credits.muso.ai/profile/eea277c2-8983-4eec-9c08-f333d4797aee"></iframe>
+  </section>
+
+  <section id="services">
+    <h2>Services</h2>
+    <p>I offer high-end mixing and mastering services with a creative and detail-driven approach. Each project is handled with the care and precision your music deserves.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Service</th>
+          <th>Description</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Mixing</td>
+          <td>Professional mixing tailored to enhance your song’s impact and emotion.</td>
+          <td>€300</td>
+        </tr>
+        <tr>
+          <td>Mastering</td>
+          <td>Final polish and loudness optimization to make your track release-ready.</td>
+          <td>€50</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="booking">
+    <h2>Book a Mixing Session</h2>
+    <form id="bookingForm" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+      <input type="hidden" name="cmd" value="_xclick" />
+      <input type="hidden" name="business" value="gemodi1@hotmail.com" />
+      <input type="hidden" name="currency_code" value="EUR" />
+      <input type="hidden" name="item_name" value="Professional Session" />
+      <input type="hidden" name="amount" id="paymentAmount" value="50.00" />
+
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="custom" placeholder="Your name" required />
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required />
+
+      <label for="date">Preferred Date</label>
+      <input type="date" id="date" name="date" required />
+
+      <label for="package">Session Package</label>
+      <select id="package" name="package" required onchange="updatePrice()">
+        <option value="" disabled selected>Select a package</option>
+        <option value="Recording" data-price="400.00">Recording Session - €400</option>
+        <option value="Mixing" data-price="300.00">Mixing - €300</option>
+        <option value="Mastering" data-price="50.00">Mastering - €50</option>
+      </select>
+
+      <label for="notes">Additional Notes</label>
+      <textarea id="notes" name="notes" rows="3" placeholder="Details, links or ideas..."></textarea>
+
+      <button type="submit">Pay with PayPal</button>
+    </form>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>You can reach me at: <a href="mailto:gemodi1@gmail.com" style="color: #e91e63;">gemodi1@gmail.com</a></p>
+  </section>
+
+  <footer>
+    © 2025 Genmix — All rights reserved.
+  </footer>
+
+  <script>
+    function updatePrice() {
+      const select = document.getElementById('package');
+      const amountInput = document.getElementById('paymentAmount');
+      const selectedOption = select.options[select.selectedIndex];
+      if (selectedOption && selectedOption.dataset.price) {
+        amountInput.value = selectedOption.dataset.price;
+      }
+    }
+  </script>
+</body>
+</html>
